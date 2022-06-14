@@ -37,9 +37,9 @@ Após completar a instalação e conectar na interface Web é necessário agrega
 
 - #### Adicionando Templates *(playbooks)*
   
-  Os templates criados a partir desse projetos 
+  Os *templates* para gerenciamento dos Mikrotiks vão referenciar o mesmo projeto porque todos os *playbooks* estão no mesmo repositório. 
   
-- #### na criação dos templates de backup estão as variáveis de acesso ao servidor FTP que armazaena os backups dos ativos
+- #### As variáveis de acesso ao servidor FTP (que armazena os backups dos Mikrotiks) devem estar no *template de backup* 
 
   `ftp_server: <IP.IP.IP.IP>`\
   `ftp_user: <FTP_USER>`\
