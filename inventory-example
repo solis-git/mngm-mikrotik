@@ -1,0 +1,9 @@
+[mikrotik]
+mikrotik1 ansible_host=192.168.128.101
+mikrotik2 ansible_host=192.168.128.33
+
+[mikrotik:vars]
+ansible_user=admin
+ansible_ssh_pass=teste123
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=community.routeros.routeros

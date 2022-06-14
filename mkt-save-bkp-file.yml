@@ -1,0 +1,21 @@
+
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+
+  - name: Run the backup command
+    routeros_command:
+      commands:
+        - "/system backup save name={{ inventory_hostname }} dont-encrypt=yes"
+
+  - name: Save the backup command
+    routeros_command:
+      commands:
+        - "tool fetch address={{ ftp_server }} src-path={{ inventory_hostname }}.backup mode=ftp upload=yes user={{ ftp_user }} password={{ ftp_pass }} dst-path=backup_files/{{ inventory_hostname }}.backup"
+
+
+  - name: Delete the backup file on the router
+    routeros_command:
+      commands:
+        - "/file remove [/file find name={{ inventory_hostname }}.backup]"
