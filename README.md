@@ -24,11 +24,12 @@ Após completar a instalação e conectar na interface Web é necessário agrega
   Os inventários no AWX nada mais são que um agrupamento de hosts, ou seja, para criar inventário necessito de hosts cadastrados
 
   ##### Na criação do inventário estão as variáveis de acesso dos ativos (mikrotik routers)
-  `ansible_user: <MIKROTIK_SSH_USER>`\
-  `ansible_ssh_pass: <MIKROTIK_SSH_PASSWORD>`\
-  `ansible_connection: ansible.netcommon.network_cli`\
-  `ansible_network_os: community.routeros.routeros`
-
+  ```
+  ansible_user: <MIKROTIK_SSH_USER>
+  ansible_ssh_pass: <MIKROTIK_SSH_PASSWORD>
+  ansible_connection: ansible.netcommon.network_cli
+  ansible_network_os: community.routeros.routeros
+  ```
 
 - #### Adicionando Projetos
   
@@ -40,7 +41,8 @@ Após completar a instalação e conectar na interface Web é necessário agrega
   Os *templates* para gerenciamento dos Mikrotiks vão referenciar o mesmo projeto porque todos os *playbooks* estão no mesmo repositório. 
   
   ##### As variáveis de acesso ao servidor FTP (que armazena os backups dos Mikrotiks) devem estar no *template de backup*
-
-  `ftp_server: <IP.IP.IP.IP>`\
-  `ftp_user: <FTP_USER>`\
-  `ftp_pass: <FTP_PASSWORD>`
+  ```
+  ftp_server: <IP.IP.IP.IP>
+  ftp_user: <FTP_USER>
+  ftp_pass: <FTP_PASSWORD>
+  ```
