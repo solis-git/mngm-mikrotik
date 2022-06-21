@@ -1,0 +1,10 @@
+
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+
+  - name: Run the backup command
+    routeros_command:
+      commands:
+        - "/ip route print"
