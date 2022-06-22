@@ -23,7 +23,7 @@
   - name: Getting IP from CIDR IP block
     routeros_command:
       commands:
-        - "{ :global IPADDRESS [:pick $IPcidrADDRESS 0 [:find $IPcidrADDRESS '"/"']]; }"
+        - "{ :global IPADDRESS [:pick $IPcidrADDRESS 0 [:find $IPcidrADDRESS / ]]; }"
 
   - name: Adding a new firewall filter rule
     routeros_command:
