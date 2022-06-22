@@ -23,4 +23,4 @@
   - name: Adding a new firewall filter rule
     routeros_command:
       commands:
-        - "{:put [/ip firewall filter add dst-address=$IPADDRESS port={{ PORTofSERVICE }} protocol={{ PROTO }} action={{ ACT }} chain={{ CHAIN }} comment={{ COMMENTofRULE }}] }"
+        - "{:put [/ip firewall filter add dst-address={{ $IPADDRESS }} port={{ PORTofSERVICE }} protocol={{ PROTO }} action={{ ACT }} chain={{ CHAIN }} comment={{ COMMENTofRULE }}] }"
