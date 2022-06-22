@@ -50,6 +50,7 @@ Após completar a instalação e conectar na interface Web é necessário agrega
   ##### PlayBook para adição de regras no Firewall Mikrotik
   - As variáveis abaixo devem estar no template que irá executar o playbook **mkt-add-firewall-rule.yml**
   - **ATENÇÃO:** Os valores abaixo são somente exemplos, esse variáveis definem as propriedades da regra que será adicionada ao firewall
+
   ```
   NETofINTERFACE: 192.168.0.0/16
   PORTofSERVICE: 80
