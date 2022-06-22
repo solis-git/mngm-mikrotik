@@ -17,8 +17,8 @@
   - name: Get IP address to create de rule
     routeros_command:
       commands:
-#        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local IPNETADDRESS [:pick $GETIPADDRESS 2]; global IPADDRESS [:pick $IPNETADDRESS 0 [:find $IPNETADDRESS "/"]]; }"
-        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPADDRESS [:pick $GETIPADDRESS 2]; }"       
+        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETNETADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local GETIPADDRESS [:pick $GETNETADDRESS 2]; :global IPADDRESS [:pick $GETIPADDRESS 0 [:find $GETIPADDRESS "/"]]; }"
+#        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPADDRESS [:pick $GETIPADDRESS 2]; }"       
 
   - name: Adding a new firewall filter rule
     routeros_command:
