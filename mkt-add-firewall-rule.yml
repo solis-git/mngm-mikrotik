@@ -7,7 +7,7 @@
   #
   # (abaixo EXEMPLO, importante respeitar as aspas simples e duplas para inserir comentário com espacos entre palavras)
   #
-  # NETofINTERF: 192.168.0.0/16
+  # NETofINTERFACE: 192.168.0.0/16
   # PORTofSERVICE: 80
   # PROTO: tcp
   # ACT: reject
@@ -17,7 +17,7 @@
   - name: Get IP address CIDR
     routeros_command:
       commands:
-        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPcidrADDRESS [:pick $GETIPADDRESS 2]; }"       
+        - "{ :local NETofINTERFACE {{ NETofINTERFACE }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERFACE ]]; :global IPcidrADDRESS [:pick $GETIPADDRESS 2]; }"       
 
   - name: Getting IP from CIDR IP block
     routeros_command:
