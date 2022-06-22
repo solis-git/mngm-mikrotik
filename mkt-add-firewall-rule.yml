@@ -15,7 +15,8 @@
   - name: Get IP address to create a firewall rule
     routeros_command:
       commands:
-        - "{:local NETOWRKofINTERFACE {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETOWRKofINTERFACE ]]; :global IPADDRESS [:pick $GETIPADDRESS 2];}"
+        - "{:local GETIPADDRESS [/ip address get [ find where address in {{ NETofINTERF }} ]];:global  IPADDRESS [:pick $GETIPADDRESS 2];:put $IPADDRESS }"
+        #- "{:local NETOWRKofINTERFACE {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETOWRKofINTERFACE ]]; :global IPADDRESS [:pick $GETIPADDRESS 2];}"
 
   - name: Adding a new firewall filter rule
     routeros_command:
