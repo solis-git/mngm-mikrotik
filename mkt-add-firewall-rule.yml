@@ -14,7 +14,7 @@
   # CHAIN: input
   # COMMENTofRULE: '"bloqueio porta 80"'
   #
-  - name: Get IP address to create de rule
+  - name: Get IP address CIDR
     routeros_command:
       commands:
         #- "{ :local NETofINTERF {{ NETofINTERF }}; :local GETNETADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local GETIPADDRESS [:pick $GETNETADDRESS 2]; :global IPADDRESS [:pick $GETIPADDRESS 0 [:find $GETIPADDRESS "/"]]; }"
