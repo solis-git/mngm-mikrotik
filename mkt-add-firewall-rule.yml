@@ -17,7 +17,6 @@
   - name: Get IP address CIDR
     routeros_command:
       commands:
-        #- "{ :local NETofINTERF {{ NETofINTERF }}; :local GETNETADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local GETIPADDRESS [:pick $GETNETADDRESS 2]; :global IPADDRESS [:pick $GETIPADDRESS 0 [:find $GETIPADDRESS "/"]]; }"
         - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPcidrADDRESS [:pick $GETIPADDRESS 2]; }"       
 
   - name: Getting IP from CIDR IP block
