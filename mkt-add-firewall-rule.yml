@@ -23,4 +23,4 @@
   - name: Adding a new firewall filter rule
     routeros_command:
       commands:
-        - "{ :local IPtoRULE {{ [:pick $IPADDRESS 0 [:find $IPADDRESS "/"]] }}; :local PORTofSERVICE {{ PORTofSERVICE }}; :local PROTO {{ PROTO }}; :local ACT {{ ACT }}; :local CHAIN {{ CHAIN }}; :local COMMENTofRULE {{ COMMENTofRULE }}; :put [/ip firewall filter add dst-address=$IPtoRULE port=$PORTofSERVICE protocol=$PROTO action=$ACT chain=$CHAIN comment=$COMMENTofRULE]; }"
+        - "{ :local PORTofSERVICE {{ PORTofSERVICE }}; :local PROTO {{ PROTO }}; :local ACT {{ ACT }}; :local CHAIN {{ CHAIN }}; :local COMMENTofRULE {{ COMMENTofRULE }}; :put [/ip firewall filter add dst-address=$IPADDRESS port=$PORTofSERVICE protocol=$PROTO action=$ACT chain=$CHAIN comment=$COMMENTofRULE]; }"
