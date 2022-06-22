@@ -46,9 +46,14 @@ Após completar a instalação e conectar na interface Web é necessário agrega
   ftp_user: <FTP_USER>
   ftp_pass: <FTP_PASSWORD>
   ```
-  ##### *PlayBook para adição de * (que armazena os backups dos Mikrotiks) devem estar no *template de backup*
+  
+  ##### PlayBook para adição de regras no Firewall Mikrotik
+  - As variáveis abaixo devem estar no *template que irá executar o playbook* **mkt-add-firewall-rule.yml**
   ```
-  ftp_server: <IP.IP.IP.IP>
-  ftp_user: <FTP_USER>
-  ftp_pass: <FTP_PASSWORD>
+  NETofINTERF: 192.168.0.0/16
+  PORTofSERVICE: 80
+  PROTO: tcp
+  ACT: drop
+  CHAIN: input
+  COMMENTofRULE: '"bloqueio entrada porta 80"'
   ```
