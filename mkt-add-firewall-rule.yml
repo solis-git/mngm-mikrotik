@@ -18,7 +18,12 @@
     routeros_command:
       commands:
         #- "{ :local NETofINTERF {{ NETofINTERF }}; :local GETNETADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local GETIPADDRESS [:pick $GETNETADDRESS 2]; :global IPADDRESS [:pick $GETIPADDRESS 0 [:find $GETIPADDRESS "/"]]; }"
-        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPADDRESS [:pick $GETIPADDRESS 2]; }"       
+        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPcidrADDRESS [:pick $GETIPADDRESS 2]; }"       
+
+  - name: Getting IP from CIDR IP block
+    routeros_command:
+      commands:
+        - "{ :global IPADDRESS [:pick $IPcidrADDRESS 0 [:find $IPcidrADDRESS "/"]]; }"
 
   - name: Adding a new firewall filter rule
     routeros_command:
