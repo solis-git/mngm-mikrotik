@@ -5,12 +5,12 @@
   tasks:
   # IMPORTANTE: verificar as variáveis no template antes de executar este playbook!!
   # (exemplo)
-  # NETofINTERF="192.168.0.0/16"
-  # PORTofSERVICE="80"
-  # PROTO="tcp"
-  # ACT="reject"
-  # CHAIN="input"
-  # COMMENTofRULE="bloqueio porta 80"
+  # NETofINTERF:"192.168.0.0/16"
+  # PORTofSERVICE:"80"
+  # PROTO:"tcp"
+  # ACT:"reject"
+  # CHAIN:"input"
+  # COMMENTofRULE:"bloqueio porta 80"
 
   - name: Get IP address to create a firewall rule
     routeros_command:
