@@ -46,3 +46,9 @@ Após completar a instalação e conectar na interface Web é necessário agrega
   ftp_user: <FTP_USER>
   ftp_pass: <FTP_PASSWORD>
   ```
+  ##### *PlayBook para adição de * (que armazena os backups dos Mikrotiks) devem estar no *template de backup*
+  ```
+  ftp_server: <IP.IP.IP.IP>
+  ftp_user: <FTP_USER>
+  ftp_pass: <FTP_PASSWORD>
+  ```
