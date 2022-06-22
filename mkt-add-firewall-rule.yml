@@ -12,7 +12,7 @@
   # CHAIN:"input"
   # COMMENTofRULE:"bloqueio porta 80"
 
-  - name: Get IP address to create a firewall rule
+  - name: Get IP address and create a firewall rule
     routeros_command:
       commands:
         - "{:local GETIPADDRESS [/ip address get [ find where address in {{ NETofINTERF }} ]];:global  IPADDRESS [:pick $GETIPADDRESS 2]; :put [/ip firewall filter add dst-address=$IPADDRESS port={{ PORTofSERVICE }} protocol={{ PROTO }} action={{ ACT }} chain={{ CHAIN }} comment={{ COMMENTofRULE }} ] }"
