@@ -4,14 +4,16 @@
   gather_facts: false
   tasks:
   # IMPORTANTE: verificar as variáveis no template antes de executar este playbook!!
-  # (exemplo)
-  # NETofINTERF:"192.168.0.0/16"
-  # PORTofSERVICE:"80"
-  # PROTO:"tcp"
-  # ACT:"reject"
-  # CHAIN:"input"
-  # COMMENTofRULE:"bloqueio porta 80"
-
+  #
+  # (abaixo EXEMPLO, importante respeitar as aspas simples e duplas para inserir comentário com espacos entre palavras)
+  #
+  # NETofINTERF: 192.168.0.0/16
+  # PORTofSERVICE: 80
+  # PROTO: tcp
+  # ACT: reject
+  # CHAIN: input
+  # COMMENTofRULE: '"bloqueio porta 80"'
+  #
   - name: Get IP address to create de rule
     routeros_command:
       commands:
