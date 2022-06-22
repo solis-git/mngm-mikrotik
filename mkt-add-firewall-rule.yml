@@ -12,14 +12,15 @@
   # CHAIN:"input"
   # COMMENTofRULE:"bloqueio porta 80"
 
-  - name: Get IP address
+  - name: Get IP address to create de rule
     routeros_command:
       commands:
-        - "{:local NETofINTERF {{ NETofINTERF }};:local PORTofSERVICE {{ PORTofSERVICE }};:local PROTO {{ PROTO }};:local ACT {{ ACT }};:local CHAIN {{ CHAIN }};:local COMMENTofRULE {{ COMMENTofRULE }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local IPADDRESS [:pick $GETIPADDRESS 2]; :put [/ip firewall filter add dst-address=$IPADDRESS port=$PORTofSERVICE protocol=$PROTO action=$ACT chain=$CHAIN comment=$COMMENTofRULE ] }"
-#        - "{:global NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPADDRESS [:pick $GETIPADDRESS 2]; :put [/ip firewall filter add dst-address=$IPADDRESS port={{ PORTofSERVICE }} protocol={{ PROTO }} action={{ ACT }} chain={{ CHAIN }} comment={{ COMMENTofRULE }}]  }"
+        - "{ :local NETofINTERF {{ NETofINTERF }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :global IPADDRESS [:pick $GETIPADDRESS 2]; }"
+#        - "{:local NETofINTERF {{ NETofINTERF }};:local PORTofSERVICE {{ PORTofSERVICE }};:local PROTO {{ PROTO }};:local ACT {{ ACT }};:local CHAIN {{ CHAIN }};:local COMMENTofRULE {{ COMMENTofRULE }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERF ]]; :local IPADDRESS [:pick $GETIPADDRESS 2]; :put [/ip firewall filter add dst-address=$IPADDRESS port=$PORTofSERVICE protocol=$PROTO action=$ACT chain=$CHAIN comment=$COMMENTofRULE ] }"
        
 
- # - name: Adding a new firewall filter rule
- #   routeros_command:
- #     commands:
+  - name: Adding a new firewall filter rule
+    routeros_command:
+      commands:
+        - "{ :local PORTofSERVICE {{ PORTofSERVICE }}; :local PROTO {{ PROTO }}; :local ACT {{ ACT }}; :local CHAIN {{ CHAIN }}; :local COMMENTofRULE {{ COMMENTofRULE }}; :put [/ip firewall filter add dst-address=$IPADDRESS port=$PORTofSERVICE protocol=$PROTO action=$ACT chain=$CHAIN comment=$COMMENTofRULE ] }"
  #       - "{:put [/ip firewall filter add dst-address={{ $IPADDRESS }} port={{ PORTofSERVICE }} protocol={{ PROTO }} action={{ ACT }} chain={{ CHAIN }} comment={{ COMMENTofRULE }}] }"
