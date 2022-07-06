@@ -1,6 +1,34 @@
 # mngm-mikrotik
 Coleção de **playbooks** para gerenciamento de Roteadores MIKROTIK utilizando *AnsibleAWX* e *Community RouterOS Collection*
 
+#### Documentação completa do Módulo para MikroTik *RouterOS*
+https://docs.ansible.com/ansible/devel/collections/community/routeros/
+
+#### *FACTS* Retornados por este módulo (lista de cahves *facts* disponíveis)
+https://docs.ansible.com/ansible/devel/collections/community/routeros/facts_module.html#ansible-collections-community-routeros-facts-module
+
+Coleta um conjunto básico de *facts* de um dispositivo remoto que está executando o RouterOS. Este módulo precede todas as chaves de *facts* da rede básica com ansible_net_<fact>. O módulo de *facts* sempre coletará um conjunto básico de *facts* do dispositivo e pode habilitar ou desabilitar a coleta de *facts* adicionais.
+
+**gather_subset**, quando fornecido esse argumento restringirá os fatos coletados a um determinado subconjunto. Os valores possíveis para este argumento incluem `all`, `hardware`, `config`, `interfaces` e `routing`. Pode especificar uma lista de valores para incluir um subconjunto maior. Os valores também podem ser usados com uma inicial ! para especificar que um subconjunto específico não deve ser coletado. Padrão: `!config`
+
+##### Exemplos
+```
+- name: Collect all facts from the device
+  community.routeros.facts:
+    gather_subset: all
+
+- name: Collect only the config and default facts
+  community.routeros.facts:
+    gather_subset:
+      - config
+
+- name: Do not collect hardware facts
+  community.routeros.facts:
+    gather_subset:
+      - "!hardware"
+```
+
+
 ## Requisitos para utilização dos scripts via AWX
 
 ####  Instalação e configuração do servidor AWX
