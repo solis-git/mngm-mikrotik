@@ -4,7 +4,7 @@ Coleção de **playbooks** para gerenciamento de Roteadores MIKROTIK utilizando 
 #### Documentação completa do Módulo para MikroTik *RouterOS*
 https://docs.ansible.com/ansible/devel/collections/community/routeros/
 
-#### *FACTS* Retornados por este módulo (lista de cahves *facts* disponíveis)
+#### *FACTS* Retornados por este módulo (lista de chaves *facts* disponíveis)
 https://docs.ansible.com/ansible/devel/collections/community/routeros/facts_module.html#ansible-collections-community-routeros-facts-module
 
 Coleta um conjunto básico de *facts* de um dispositivo remoto que está executando o RouterOS. Este módulo precede todas as chaves de *facts* da rede básica com ansible_net_<fact>. O módulo de *facts* sempre coletará um conjunto básico de *facts* do dispositivo e pode habilitar ou desabilitar a coleta de *facts* adicionais.
